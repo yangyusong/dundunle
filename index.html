@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta name="viewport" content="width=device-width; height=device-height;initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Expires" content="Thu, 01 Jan 1970 00:00:01 GMT"/>
+    <meta http-equiv="Expires" content="0"/> -->
+	<title>蹲蹲乐</title>
+	<link rel="stylesheet" href="css/common.css" />
+    <script type="text/javascript">log = function(){console.log.apply(console, arguments)}</script>
+    <script type="text/javascript" src = "js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src = "js/view.js"></script>
+    <script type="text/javascript" src = "js/EventControllerMouse.js"></script>
+    <script type="text/javascript" src = "js/R.js"></script>
+    <script type="text/javascript" src = "js/Timer.js"></script>
+    <script type="text/javascript" src = "js/Player.js"></script>
+    <script type="text/javascript" src = "js/Audio.js"></script>
+    <script type="text/javascript" src = "js/game.js"></script>
+    <script type="text/javascript" src = "js/Audio.js"></script>
+</head>
+<!--
+#player0
+#player1
+#gbox      提示该那只蹲
+#pointer   猫的滑动效果
+#main      PK界面的背景图滚动
+#gtime     倒计时
+#pload     控制加载页面的小猫123显示
+#gwhomove  谁蹲
+#spointer  手指滑过指环
+#sad       广告
+-->
+<body>
+<!--开始界面-->
+<div class="wrap startbg">
+	<div class="startmao"></div>
+    <div class="shelp" id="sad"></div>
+    <div class="sline" id="spointer"></div>
+	<div class="startbtn" id="startbtn" onClick="view.chooseRole()"></div>
+</div>
+<!--开始界面 END-->
+<!--输入名字界面-->
+<div class="wrap namebg"  style="display:none;">
+	<div class="ncenter">
+    	<div class="nleftbtn" onClick="view.preRole()"></div>
+        <div class="nrole"><img src="img/name/role1.png"></div>
+        <div class="nrightbtn"  onclick="view.nextRole()"></div>
+        <input type="text" class="ninput" />
+        <input type="button" class="nokbtn" />
+    </div>
+</div>
+<!--输入名字界面 END-->
+<!--等待界面-->
+<div class="wrap preparebg"  style="display:none;">
+    <div class="pcenter">
+    	<div class='loading' id="pload">
+             <div class='block_1 loading_block'></div>
+             <div class='block_2 loading_block'></div>
+             <div class='block_3 loading_block'></div>
+        </div>
+        <div class="pname"><span>我叫毛毛</span></div>
+        <div class="prole"><img src="img/name/role2.png"></div>
+    </div>
+</div>
+<!--等待界面 END-->
+
+<!--PK界面-->
+<div class="wrap gamebg" id="main" style="display:none;">
+	<!--外部修饰-->
+	<div class="gtopl"></div>
+    <div class="gtopr"></div>
+    <div class="gbottom"></div>
+    <!--外部修饰 END-->
+    <!--倒计时-->
+    <div class="gtime" id="gtime"></div>
+    <!--倒计时 END-->
+    <!--道具-->
+    <div class="gprops"></div>
+    <!--道具 END-->
+    <div class="grolewrap">
+    	<div class="gplayer" id="player0">
+        	<!--玩家1名字-->
+        	<div class="gname"><span>达芬奇</span></div>
+            <!--玩家1名字 END-->
+            <!--指定蹲的player头顶弹窗-->
+        	<div class="gname" id="gbox">一二三四五蹲四五蹲完</div>
+            <!--指定蹲的player头顶弹窗 END-->
+        </div>
+        <div class="gplayer" id="player1">
+        	<!--玩家2名字-->
+        	<div class="gname"><span>达芬奇</span></div>
+            <!--玩家2名字 END-->
+            </div>
+        <div class="gplayer" id="player2">
+        	<!--玩家3名字-->
+        	<div class="gname"><span>达芬奇</span></div>
+            <!--玩家3名字 END-->
+        </div>
+        <div id="pointer"></div>
+    </div>
+    <div class="gwhomove" id="gwhomove"></div>
+</div>
+<!--PK界面 END-->
+
+<!--失败界面-->
+<div class="wrap failedbg" style="display:none;">
+    <div class="fname"></div>
+    <div class="fplayer"></div>
+    <div class="fredobtn"></div>
+</div>
+<!--失败界面 END-->
+
+<!--成功界面-->
+<div class="wrap successbg" style="display:none;">
+    <div class="sname"></div>
+    <div class="splayer"></div>
+    <div class="fredobtn"></div>
+</div>
+<!--成功界面 END-->
+
+<!--报错界面-->
+<div class="wrap errorbg" style="display:none;">
+    <div class="sname"></div>
+    <div class="splayer"></div>
+    <div class="fredobtn"></div>
+</div>
+<!--报错界面 END-->
+
+<!--声效-->
+<div id="sound" style="display:none"></div>
+<!--声效 END-->
+
+</body>
+</html>
