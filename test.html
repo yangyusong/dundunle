@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		#main div{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="player0"></div>
+		<div id="player1"></div>
+		<div id="player2"></div>
+		<div id="sound"></div>
+	</div>
+	<script type="text/javascript" src = "js/EventControllerMouse.js"></script>
+	<script type="text/javascript" src = "js/R.js"></script>
+	<script type="text/javascript" src = "js/Timer.js"></script>
+	<script type="text/javascript" src = "js/Player.js"></script>
+	<script type="text/javascript" src = "js/Audio.js"></script>
+	<script type="text/javascript">
+		var log = function(){console.log.apply(console, arguments)};
+		window.onload = function(){
+			t = new Timer();
+			t.start(60);
+
+			playerList = [];
+			div = document.querySelector("#main");
+				role1 = new Player({
+					name:"haha",
+					role:"role1",
+					position:0
+				});
+				role2 = new Player({
+					name:"haha",
+					role:"role2",
+					position:1
+				});
+				role3 = new Player({
+					name:"haha",
+					role:"role3",
+					position:2
+				});
+				playerList.push(role1);
+				playerList.push(role2);
+				playerList.push(role3);
+				EventController.init();
+
+		}
+
+		function play(data){
+			for (i in playerList){
+				playerList[i].play(data)
+			}
+		}
+
+
+		audio = new Sound();
+		audio.init();
+	</script>
+</body>
+</html>
