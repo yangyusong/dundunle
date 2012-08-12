@@ -52,17 +52,17 @@
 	 },
 	 stand: function(){
 	     this.state = 1;
-	     view.stand(this.elem, this.role);
+	     view.stand(this);
 	 },
 	 sit: function(){
 	     this.state = 0;
-	     view.stand(this.elem, this.role);
+	     view.stand(this);
 	 },
 	 win: function(){
-	     view.win(this.name, this.role);
+	     view.win(this);
 	 },
 	 lose: function(){
-	     view.lose(this.name, this.role);
+	     view.lose(this);
 	 }
      };
 }).call(window);

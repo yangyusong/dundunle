@@ -81,7 +81,7 @@
     /*
         todo 处理协议函数
     */
-
+    game.act(data.pos, data.action);
   });
 
   /*
@@ -100,7 +100,7 @@
     /*
         todo 处理协议函数
     */
-
+    game.next(pos);
   });
 
   /*

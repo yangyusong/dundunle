@@ -24,12 +24,30 @@
 		 };
 	     };
 	 },
+	 act: function(pos, action){
+	     var player = this._getPlayer(pos);
+	     player.act(action);
+	 },
+	 next: function(pos){
+	     var player = this._getPlayer(pos);
+	     view.next(player);	     
+	 },
 	 start: function(players){
 	     this.init(players);
 	     view.start();
 	 },
 	 end: function(){
 	     view.end();
+	 },
+	 _getPlayer: function(pos){
+	     var players = this.players, player;
+	     for(var i = 0, l = players; i < l; i++){
+		 player = players[i];
+		 if(player.pos == pos){
+		     break;
+		 };
+	     };
+	     return player;
 	 }
      };
 }).call(window);
