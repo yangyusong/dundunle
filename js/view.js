@@ -146,6 +146,18 @@ window.onload = function(){
         }
     }
 
+    document.querySelector(".startmao").style.webkitTransform = "translate3d(0px,0px,0px)"
+
+    $("#spointer").toggle(function(){
+       this.style.webkitTransition = "all .5s ease-in-out";
+       document.querySelector("#sad").style.webkitTransition = "all .5s ease-in-out";
+       this.style.webkitTransform = "translate3d(0px,495px,0px)";
+       document.querySelector("#sad").style.webkitTransform = "translate3d(0px,495px,0px)";
+    }, function(){
+       this.style.webkitTransform = "translate3d(0px,0px,0px)";
+       document.querySelector("#sad").style.webkitTransform = "translate3d(0px,0px,0px)";
+    });
+
     Game.initialize();
     view.init();
     audio = new Sound();
