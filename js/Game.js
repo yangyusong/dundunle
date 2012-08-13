@@ -5,6 +5,7 @@
  */
 (function(){
      var Game = function(role, name){
+	 this.enable = false;
 	 this.players = [];
 	 this.localPlayer = new Player(role, name);
 	 this.localPlayer.login();
@@ -26,11 +27,18 @@
 	 },
 	 act: function(pos, action){
 	     var player = this._getPlayer(pos);
-	     player.act(action);
+	     if(player){
+		 this.enable = false;
+		 player.act(action);
+	     };
 	 },
 	 next: function(pos){
 	     var player = this._getPlayer(pos);
-	     view.next(player);	     
+	     if(!player){
+		 this.enable = true;
+		 player = game.localPlayer;
+	     };
+	     view.next(player);
 	 },
 	 start: function(players){
 	     this.init(players);

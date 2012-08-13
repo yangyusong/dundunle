@@ -40,6 +40,8 @@
 	     };
 	 },
 	 play: function(action){
+	     if(!game.enable){return;};
+
 	     var cmd = {action: action, sid: this.id};
 	     if(action != this.state){
 		 if(action == pub.action.sit){
@@ -51,6 +53,8 @@
 	     };	     
 	 },
 	 next: function(){
+	     if(!game.enable){return;};
+
 	     var cmd = {sid: game.localPlayer.id, pos: this.pos};
 	     sender.sendnext(cmd);
 	 },
