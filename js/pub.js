@@ -25,13 +25,27 @@
 
   /*
   动作分类
-  squat：蹲, stand:站
+  sit：蹲, stand:站
   */
 
 
   pub.action = {
-    squat: 0,
+    sit: 0,
     stand: 1
+  };
+
+  pub.machine = {
+    end: -1,
+    sit: 0,
+    stand: 1,
+    start: 2,
+    init: 3,
+    down: 4,
+    over: 5,
+    moveUp: 6,
+    moveDown: 7,
+    up: 8,
+    out: 9
   };
 
   if ((typeof window) !== "undefined") {

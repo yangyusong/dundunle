@@ -10,14 +10,18 @@
 	 this.role = role;
 	 this.pos = pos;
 	 this.elem = elem;
-	 this.state = 1;
+	 this.state = pub.action.stand;
 	 this.count = 0;
+	 if(elem){
+	     eventBinder.next(this);
+	 };
      };
 
      Player.prototype = {
 	 init: function(pos, elem){
 	     this.pos = pos;
 	     this.elem = elem;
+	     eventBinder.play(this);
 	 },
 	 setId: function(id){
 	     this.id = id;
@@ -28,9 +32,9 @@
 	 },
 	 act: function(action){
 	     if(action != this.state){
-		 if(action == 0){
+		 if(action == pub.action.sit){
 		     this.sit();
-		 } else if(action == 1){
+		 } else if(action == pub.action.stand){
 		     this.stand();
 		 };		 
 	     };
@@ -38,24 +42,24 @@
 	 play: function(action){
 	     var cmd = {action: action, sid: this.id};
 	     if(action != this.state){
-		 if(action == 0){
+		 if(action == pub.action.sit){
 		     this.sit();
-		 } else if(action == 1){
+		 } else if(action == pub.action.sit){
 		     this.stand();
 		 };
 		 sender.sendact(cmd);
 	     };	     
 	 },
-	 next: function(pos){
-	     var cmd = {sid: this.id, pos: pos};
+	 next: function(){
+	     var cmd = {sid: game.localPlayer.id, pos: this.pos};
 	     sender.sendnext(cmd);
 	 },
 	 stand: function(){
-	     this.state = 1;
+	     this.state = pub.action.stand;
 	     view.stand(this);
 	 },
 	 sit: function(){
-	     this.state = 0;
+	     this.state = pub.action.sit;
 	     view.stand(this);
 	 },
 	 win: function(){

@@ -36,7 +36,12 @@
 	     this.init(players);
 	     view.start();
 	 },
-	 end: function(){
+	 end: function(pos){
+	     if(this.localPlayer.pos != pos){
+		 this.localPlayer.lose();
+	     }else{
+		 this.localPlayer.win();
+	     };
 	     view.end();
 	 },
 	 _getPlayer: function(pos){
