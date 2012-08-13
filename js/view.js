@@ -1,7 +1,9 @@
 (function(){
      var view = this.view = {
-	 createPlayerElem: function(){
+	 pk: $('#main'),
+	 createPlayerElem: function(player){
 	     var playerElem;
+	     this.pk.append();
 	     return playerElem;
 	 },
 	 stand: function(player){
