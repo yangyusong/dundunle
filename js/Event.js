@@ -4,7 +4,7 @@
  * @date: 2012-08-13
  */
 (function(){
-     var StateMachine = function(player){
+     var StateMachine = this.StateMachine = function(player){
 	 this.player = player;
      };
      
@@ -14,8 +14,8 @@
 	 start: function(input){
 	     if(input == pub.machine.init){
 		 this.state = pub.machine.start;
-	     }else if(type == pub.machine.over){
-		 this.stand(pub.machine.init);
+	     }else if(input == pub.machine.moveDown){
+		 this.sit(pub.machine.init);
 	     }else{
 		 this.end(pub.machine.init);
 	     };
@@ -47,7 +47,7 @@
 	 end: function(input){
 	     if(input == pub.machine.init){
 		 this.state = pub.machine.end;
-	     }else if(type == pub.machine.down){
+	     }else if(input == pub.machine.down){
 		 this.start(pub.machine.init);
 	     }else{
 		 return;
@@ -65,7 +65,7 @@
 	     }else if(type == 'mousemove'){
 		 if(event.clientY - preEvent.clientY > 0){
 		     input = pub.machine.moveDown;
-		 }else if(event.clientY - preEvent.clientY < 0){
+		 }else{
 		     input = pub.machine.moveUp;
 		 };
 	     }else if(type == 'mouseout'){
@@ -75,15 +75,24 @@
 	     };
 
 	     this.event = event;
+	     if(state == pub.machine.start){
+		 state = 'start';
+	     }else if(state == pub.machine.end){
+		 state = 'end';
+	     }else if(state == pub.machine.stand){
+		 state = 'stand';
+	     }else if(state == pub.machine.sit){
+		 state = 'sit';
+	     };
 	     this[state](input);
 	 }
      };
 
-     var eventBinder = this.eventControl = {
+     var eventBinder = this.eventBinder = {
 	 play: function(player){
 	     $(player.elem).bind('mousedown mouseover mousemove mouseout mouseup', function(event){
-				     if(stateMachine){
-					stateMachine = new StateMachine(player); 
+				     if(typeof stateMachine == 'undefined'){
+					 stateMachine = new StateMachine(player);
 				     };
 				     stateMachine.transition(event);
 				 });

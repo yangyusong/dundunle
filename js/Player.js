@@ -4,7 +4,7 @@
  * @date: 2012-08-12
  */
 (function(){
-     var Player = function(role, name, id, pos, elem){
+     var Player = this.Player = function(role, name, id, pos, elem){
 	 this.id = id;
 	 this.name = name;
 	 this.role = role;
@@ -46,7 +46,7 @@
 	     if(action != this.state){
 		 if(action == pub.action.sit){
 		     this.sit();
-		 } else if(action == pub.action.sit){
+		 } else if(action == pub.action.stand){
 		     this.stand();
 		 };
 		 sender.sendact(cmd);
@@ -64,13 +64,16 @@
 	 },
 	 sit: function(){
 	     this.state = pub.action.sit;
-	     view.stand(this);
+	     view.sit(this);
 	 },
 	 win: function(){
 	     view.win(this);
 	 },
 	 lose: function(){
 	     view.lose(this);
+	 },
+	 log: function(){
+	     console.log(this.id + ':', arguments);
 	 }
      };
 }).call(window);

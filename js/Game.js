@@ -4,8 +4,9 @@
  * @date: 2012-08-12
  */
 (function(){
-     var Game = function(role, name){
-	 this.enable = false;
+     var Game = this.Game = function(role, name){
+	 //Test should be false
+	 this.enable = true;
 	 this.players = [];
 	 this.localPlayer = new Player(role, name);
 	 this.localPlayer.login();
@@ -16,19 +17,20 @@
 	     var player, playerElem;
 	     for(var i = 0, l = players.length; i < l; i++){
 		 player = players[i];
-		 playerElem = view.createPlayerElem(player.pos);
+		 playerElem = view.createPlayerElem(player.position);
 		 if(player.id != this.localPlayer.id){
-		     player = new Player(player.role, player.name, player.sid, player.pos, playerElem);
+		     player = new Player(player.role, player.name, player.id, player.position, playerElem);
 		     this.players.push(player);
 		 } else {
-		     this.localPlayer.init(player.pos, playerElem);
+		     this.localPlayer.init(player.position, playerElem);
 		 };
 	     };
 	 },
 	 act: function(pos, action){
 	     var player = this._getPlayer(pos);
 	     if(player){
-		 this.enable = false;
+		 //Test should be false
+		 this.enable = true;
 		 player.act(action);
 	     };
 	 },
@@ -54,7 +56,7 @@
 	 },
 	 _getPlayer: function(pos){
 	     var players = this.players, player;
-	     for(var i = 0, l = players; i < l; i++){
+	     for(var i = 0, l = players.length; i < l; i++){
 		 player = players[i];
 		 if(player.pos == pos){
 		     break;
