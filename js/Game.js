@@ -5,8 +5,7 @@
  */
 (function(){
      var Game = this.Game = function(role, name){
-	 //Test should be false
-	 this.enable = true;
+	 this.enable = false;
 	 this.players = [];
 	 this.localPlayer = new Player(role, name);
 	 this.localPlayer.login();
@@ -29,8 +28,7 @@
 	 act: function(pos, action){
 	     var player = this._getPlayer(pos);
 	     if(player){
-		 //Test should be false
-		 this.enable = true;
+		 this.enable = false;
 		 player.act(action);
 	     };
 	 },
@@ -44,21 +42,22 @@
 	 },
 	 start: function(players){
 	     this.init(players);
-	     view.start();
+	     view.startGame();
 	 },
 	 end: function(pos){
+	     console.log(pos);
 	     if(this.localPlayer.pos != pos){
 		 this.localPlayer.lose();
 	     }else{
 		 this.localPlayer.win();
 	     };
-	     view.end();
 	 },
 	 _getPlayer: function(pos){
-	     var players = this.players, player;
+	     var players = this.players, tempPlayer, player;
 	     for(var i = 0, l = players.length; i < l; i++){
-		 player = players[i];
-		 if(player.pos == pos){
+		 tempPlayer = players[i];
+		 if(tempPlayer.pos == pos){
+		     player = tempPlayer;
 		     break;
 		 };
 	     };

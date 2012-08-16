@@ -11,7 +11,7 @@
 (function() {
      var debug, sender, sid, socket, test_act, test_login, test_next;
 
-     socket = io.connect('http://58.215.140.194:3000');
+     socket = io.connect('http://localhost:3000');
 
      /*
       todo 正式环境中 debug = false
@@ -64,6 +64,7 @@
 		    todo 处理协议函数
 		    */
 		   game.start(data.players);
+		   game.next(0);
 	       });
 
      /*
@@ -75,7 +76,7 @@
 
      socket.on('act', function(data) {
 		   if (debug) {
-		       console.log("act" + ',pos:' + data.pos + ',action:' + data.action);
+		       console.log("act" + ',pos:' + data.pos + ',action:' + data.action + ',times:' + data.times);
 		   }
 		   if ('act' === 'login') {
 		       sid = data.sid;
@@ -83,7 +84,7 @@
 		   /*
 		    todo 处理协议函数
 		    */
-		   game.act(data.pos, data.action);
+		   game.act(data.pos, data.action, data.times);
 	       });
 
      /*
