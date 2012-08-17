@@ -14,11 +14,11 @@
          winBg: $('.successbg')[0],
          numberOfRole: 3,
          currentRole: 0,
-	 createPlayerElem: function(pos){
+	 createPlayerElem: function(pos, name, role){
 	     var playerElem = '<div class="gplayer" id="player' + pos +'">'
 		 + '<div class="gname">'
 		 + '<span>'
-		 + '达芬奇'
+		 + name
 		 + '</span>'
 		 + '</div>'
 		 + '<div class="gname" id="gbox">'
@@ -27,6 +27,7 @@
 		 + '</div>';
 	     this.pkWrap.append(playerElem);
 	     playerElem = $('div#player' + pos)[0];
+	     $(playerElem).css('background-image', 'url("' + pub.pic.rolesAnimation[role] + '")');
 	     return playerElem;
 	 },
          nextRole : function(){
@@ -96,9 +97,35 @@
          },
 	 stand: function(player){
 	     player.log('stand');
+	     var elem = $(player.elem);
+	     var position = elem.css('background-position-x').slice(0, -1) - 0;
+	     var count = 0;
+	     position = 20;
+	     function transform(){
+		 if(count < 2){
+		     position = (position + 10) % 40;
+		     elem.css('background-position-x', position + '%');
+		     count++;
+		     setTimeout(transform, 30);
+		 };
+	     };
+	     setTimeout(transform, 30);
 	 },
 	 sit: function(player){
 	     player.log('sit');
+	     var elem = $(player.elem);
+	     var position = elem.css('background-position-x').slice(0, -1) - 0;
+	     var count = 0;
+	     position = 0;
+	     function transform(){
+		 if(count < 2){
+		     position  = (position + 10) % 40;
+		     elem.css('background-position-x', position + '%');
+		     count++;
+		     setTimeout(transform, 30);
+		 };
+	     };
+	     setTimeout(transform, 30);
 	 },
 	 next: function(player){
 	     player.log('it is my turn.');

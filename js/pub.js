@@ -36,7 +36,8 @@
 
      pub.pic = {
 	 gstartbtn : 'img/name/gstartbtn',
-	 roles : ['img/name/role1.png', 'img/name/role2.png', 'img/name/role3.png']
+	 roles : ['img/name/role1.png', 'img/name/role2.png', 'img/name/role3.png'],
+	 rolesAnimation: ['img/role/role1.png', 'img/role/role2.png', 'img/role/role3.png']
      };
 
      pub.machine = {

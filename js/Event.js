@@ -46,6 +46,9 @@
 	 },
 	 end: function(input){
 	     if(input == pub.machine.init){
+		 if(this.state == pub.machine.sit){
+		     this.player.play(pub.action.stand);		     
+		 };
 		 this.state = pub.machine.end;
 	     }else if(input == pub.machine.down){
 		 this.start(pub.machine.init);

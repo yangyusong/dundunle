@@ -16,7 +16,7 @@
 	     var player, playerElem;
 	     for(var i = 0, l = players.length; i < l; i++){
 		 player = players[i];
-		 playerElem = view.createPlayerElem(player.position);
+		 playerElem = view.createPlayerElem(player.position, player.name, player.role);
 		 if(player.id != this.localPlayer.id){
 		     player = new Player(player.role, player.name, player.id, player.position, playerElem);
 		     this.players.push(player);
