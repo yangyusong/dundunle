@@ -159,7 +159,7 @@
           enimyid = c.tabList[tabId].idlist[sid];
           enimySock = localApi.getEnimySock(enimyid);
           sendApi.sendstart([socket, enimySock], dataout, false);
-          return c.tabList[tabId].handler = setTimeout(localApi.isEnd, c.timers.checkTime, socket, tabId);
+          return c.tabList[tabId].handler = setTimeout(localApi.isEnd, c.timers.checkTime, socket, tabId, false);
         }
       }
     }

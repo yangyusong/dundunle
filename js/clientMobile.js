@@ -11,6 +11,7 @@
 (function() {
      var debug, sender, sid, socket, test_act, test_login, test_next;
 
+     //socket = io.connect('http://192.168.42.72:3000');
      socket = io.connect('http://localhost:3000');
 
      /*

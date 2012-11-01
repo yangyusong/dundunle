@@ -1,5 +1,4 @@
 
-
 /*
  * @author: YuSongYang
  * @email: yys159258@126.com
@@ -67,7 +66,7 @@
     var k, v, _results, _results1;
     if (isDiffData) {
       if (debug) {
-        console.log("--- act" + ',pos:' + data[0].pos + ',action:' + data[0].action);
+        console.log("--- act" + ',pos:' + data[0].pos + ',action:' + data[0].action + ',times:' + data[0].times);
       }
       _results = [];
       for (k in sockets) {
@@ -77,7 +76,7 @@
       return _results;
     } else {
       if (debug) {
-        console.log("--- act" + ',pos:' + data.pos + ',action:' + data.action);
+        console.log("--- act" + ',pos:' + data.pos + ',action:' + data.action + ',times:' + data.times);
       }
       _results1 = [];
       for (k in sockets) {

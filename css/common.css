@@ -1,4 +1,4 @@
-﻿body,ul,li { padding:0; margin:0;}
+﻿body,ul,li { padding:0; margin:0; /*cursor:url(../img/gaming/mouse.png),auto;*/-webkit-user-select: none;}
 input{outline: 0; border:0;}
 
 .wrap{ width: 960px; height:640px; overflow:hidden;}
@@ -36,7 +36,7 @@ input{outline: 0; border:0;}
 #player1{ float: right; }
 .gname{ margin-top: -65px; width:308px; height:134px; text-align:center; color:#916a0d; font-size:30px; line-height:160px; font-weight:bold; overflow:hidden;}
 .gname span{background:rgba(0,0,0,0.3);-webkit-border-radius: 12px; padding:5px 20px; color:#fff;}
-#gbox{  background:url(../img/gaming/gbox.png) no-repeat; z-index:210; font-size:40px; line-height:120px;text-shadow: 3px 3px 2px #fff; display:none;}
+#gbox{  background:url(../img/gaming/gbox.png) no-repeat; z-index:210; font-size:40px; line-height:120px;text-shadow: 3px 3px 2px #fff; display:none; margin-top: -176px;}
 #pointer{ background:url(../img/gaming/mouse.png) no-repeat; width:106px; height:107px; position:absolute; z-index:400; display:none;}
 .gprops{ position:absolute; background:url(../img/gaming/daoju.png) no-repeat; width:352px; height:102px; right:15px; top:10px; z-index:100;}
 
@@ -47,29 +47,29 @@ input{outline: 0; border:0;}
 }
 .loading .loading_block{
     background:url(../img/loading/loadingcat.png) no-repeat; width:112px; height:78px; position:absolute; top:56px;;
-/*        opacity:0.1;
+        opacity:0.1;
     -webkit-transform:scale(0.7);
     -webkit-animation-name: loading;
-    -webkit-animation-duration: 1s;
+    -webkit-animation-duration: 1.5s;
     -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: linear;*/
+    -webkit-animation-direction: linear;
 }
 .loading .block_1{ left:16px;}
 .loading .block_2{left:177px;}
 .loading .block_3{left:348px;}
-/*.loading .block_1{
-    -webkit-animation-delay: .3s;
+.loading .block_1{
+    -webkit-animation-delay: 0s;
  }
 .loading .block_2{
-    -webkit-animation-delay: .4s;
+    -webkit-animation-delay: .5s;
 }
 .loading .block_3{
-    -webkit-animation-delay: .5s;
+    -webkit-animation-delay: 1s;
 }
 @-webkit-keyframes loading{
     0%{-webkit-transform: scale(1.2);opacity:1;}
     100%{-webkit-transform: scale(0.7);opacity:0.1;}
-}*/
+}
 
 .failedbg{ background:url(../img/result/lost.png) no-repeat; position:relative;}
 .fredobtn{ background:url(../img/result/redo.png) no-repeat; width:203px; height:95px; position:absolute; top:400px; left:680px;}

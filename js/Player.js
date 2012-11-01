@@ -12,6 +12,7 @@
 	 this.elem = elem;
 	 this.state = pub.action.stand;
 	 this.count = 0;
+	 this.nextEnable = true;
 	 if(elem){
 	     eventBinder.next(this);
 	 };
@@ -40,6 +41,7 @@
 	     };
 	 },
 	 play: function(action){
+	     this.nextEnable = true;
 	     if(!game.enable){return;};
 
 	     var cmd = {action: action, sid: this.id};
@@ -54,7 +56,9 @@
 	 },
 	 next: function(){
 	     if(!game.enable){return;};
-
+	     /*if(!this.nextEnable){return;};
+	     console.log(this.nextEnable);
+	     this.nextEnable = false;*/
 	     var cmd = {sid: game.localPlayer.id, pos: this.pos};
 	     sender.sendnext(cmd);
 	 },

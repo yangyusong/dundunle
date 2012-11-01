@@ -11,7 +11,8 @@
 (function() {
      var debug, sender, sid, socket, test_act, test_login, test_next;
 
-     socket = io.connect('http://localhost:3000');
+     socket = io.connect('http://192.168.43.201:3000');
+     //socket = io.connect('/');
 
      /*
       todo 正式环境中 debug = false

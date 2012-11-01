@@ -24,7 +24,7 @@
   c = consts.c;
 
   socketOn = function(socket, data) {
-    var dataout, enimySock, enimyid, idName, sid, tab;
+    var dataout, enimySock, enimyid, idName, idNameEnimy, sid, tab;
     try {
       if (data.sid) {
         sid = data.sid;
@@ -49,13 +49,17 @@
     tab.lastTime = pubapi.getTime();
     idName.current = global.pub.action.stand;
     idName.action = global.pub.action.stand;
-    c.idNameList[enimyid].current = global.pub.action.stand;
-    c.idNameList[enimyid].action = global.pub.action.stand;
+    idNameEnimy = c.idNameList[enimyid];
+    if (idNameEnimy) {
+      idNameEnimy.current = global.pub.action.stand;
+      idNameEnimy.action = global.pub.action.stand;
+    }
     if (tab.times < 5) {
+      localApi.isEnd(socket, idName.tab, true);
       tab.times = 0;
-      return sendApi.sendresult([socket, enimySock], {
-        pos: c.idNameList[enimyid].p.position
-      }, false);
+      if (tab.handler) {
+        return clearTimeout(tab.handler);
+      }
     } else {
       tab.times = 0;
       tab.host = enimyid;

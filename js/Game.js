@@ -13,7 +13,10 @@
 
      Game.prototype = {
 	 init: function(players){
+	     view.clearPkWrap();
+
 	     var player, playerElem;
+	     this.players = [];
 	     for(var i = 0, l = players.length; i < l; i++){
 		 player = players[i];
 		 playerElem = view.createPlayerElem(player.position, player.name, player.role);

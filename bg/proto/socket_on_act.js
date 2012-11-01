@@ -49,17 +49,18 @@
     idName.current = data.action;
     tab = c.tabList[idName.tab];
     if (tab.players.length < c.tabLen) {
+      console.log("--end");
       return;
     }
     tab.times++;
     tab.lastTime = pubapi.getTime();
+    console.log("ok");
     dataout = {
       pos: c.idNameList[tab.host].p.position,
       action: data.action,
       times: tab.times
     };
     enimyid = tab.idlist[sid];
-    console.log('enimyid' + enimyid);
     enimySock = localApi.getEnimySock(enimyid);
     return sendApi.sendact([socket, enimySock], dataout, false);
   };

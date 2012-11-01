@@ -1,5 +1,4 @@
 
-
 /*
  * @author: YuSongYang
  * @email: yys159258@126.com
@@ -123,6 +122,7 @@
     */
 
     socket.on('login', function(data) {
+      console.log("ok");
       if (logLvl === logLvls.show) {
         util.puts("login" + ',role:' + data.role + ',name:' + data.name + 'sid:' + data.sid);
       }
