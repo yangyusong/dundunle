@@ -100,7 +100,12 @@
 			role3:{
 				sitDown:"sound/dun/nanadun.wav",
 				name:"sound/name/nana.wav"
-			}
+			},
+		    system:{
+			start: 'sound/kaishi.wav',
+			lose: 'sound/lose.wav',
+			win: 'sound/win.wav'
+		    }
 		}
 	};
 })(window);
